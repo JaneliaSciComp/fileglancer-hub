@@ -44,6 +44,9 @@ c.JupyterHub.template_vars = {
     'hub_subtitle': ''
 }
 
+# only bind to localhost to prevent unsecured external access
+c.JupyterHub.bind_url = 'http://127.0.0.1:8000'
+
 
 c.JupyterHub.log_datefmt = '%Y-%m-%dT%H:%M:%S'  # ISO8601 (expanded)
 c.JupyterHub.template_paths = [Path(__file__).parent / 'templates']
