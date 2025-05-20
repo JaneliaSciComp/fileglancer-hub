@@ -1,0 +1,15 @@
+[Unit]
+Description=Fileglancer Hub Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/path/to/fileglancer-hub
+ExecStart=/usr/local/bin/pixi run start
+ExecStart=/usr/bin/env pixi run start
+Restart=on-failure
+RestartSec=5s
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target
