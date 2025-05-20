@@ -1,0 +1,19 @@
+[project]
+name = "fileglancer-hub"
+version = "0.0.1"
+description = "JupyterHub integration for Fileglancer"
+authors = ["Jody Clements <clementsj@janelia.hhmi.org>"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64"]
+preview = ["pixi-build"]
+
+[dependencies]
+jupyterlab = ">=4.4.2"
+jupyterhub = ">=5.3.0"
+pip = "*"
+
+[tool.pixi.pypi-dependencies]
+fileglancer = { url = "https://github.com/JaneliaSciComp/fileglancer/releases/download/v0.1.0-alpha/fileglancer-0.1.0.tar.gz" }
+
+[tasks]
+start = "python hub_launcher.py"
