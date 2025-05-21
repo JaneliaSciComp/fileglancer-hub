@@ -16,7 +16,9 @@ cd fileglancer-hub
 pixi run start
 ```
 
-## Production
+## Production Installation
+
+### Hub installation
 1. follow the installation instructions above.
 
 2. download and install pixi
@@ -43,11 +45,31 @@ sudo systemctl enable fileglancer
 ```bash
 sudo systemctl start fileglancer
 ```
-7. check the status of the service
+### Proxy Installation
+1. install nginx
+```bash
+yum install nginx
+```
+2. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
+```bash
+sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
+```
+3. enable the service
+```bash
+sudo systemctl enable nginx
+```
+4. start the service
+```bash
+sudo systemctl start nginx
+```
+
+### Hub status checks
+
+- check the status of the service
 ```bash
 sudo systemctl status fileglancer
 ```
-8. check the logs of the service
+- check the logs of the service
 ```bash
 sudo journalctl -u fileglancer
 ```
