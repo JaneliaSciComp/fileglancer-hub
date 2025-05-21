@@ -7,13 +7,23 @@ channels = ["conda-forge"]
 platforms = ["linux-64", "osx-64"]
 preview = ["pixi-build"]
 
-[dependencies]
-jupyterlab = ">=4.4.2"
-jupyterhub = ">=5.3.0"
-pip = "*"
-
-[pypi-dependencies]
-fileglancer = { url = "https://github.com/JaneliaSciComp/fileglancer/releases/download/v0.1.0-alpha/fileglancer-0.1.0.tar.gz" }
-
 [tasks]
 start = "python hub_launcher.py"
+
+[dependencies]
+python = "*"
+pip = "*"
+
+[feature.hub.dependencies]
+jupyterlab = ">=4.4.2"
+jupyterhub = ">=5.3.0"
+
+[feature.hub.pypi-dependencies]
+fileglancer = "*"
+
+[feature.central.pypi-dependencies]
+fileglancer-central = "*"
+
+[environments]
+hub = { features = ["hub"], solve-group = "hub" }
+central = { features = ["central"], solve-group = "central" }
