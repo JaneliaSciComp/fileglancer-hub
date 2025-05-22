@@ -1,10 +1,10 @@
 [Unit]
-Description=Fileglancer Hub Service
+Description=Fileglancer Central Service
 After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/path/to/fileglancer-hub
+WorkingDirectory=/path/to/fileglancer-central
 ExecStart=/usr/local/bin/pixi run -e central uvicorn fileglancer_central.app:app --host 0.0.0.0 --workers 20 --port 8989
 ExecStart=/usr/bin/env pixi run -e central uvicorn fileglancer_central.app:app --host 0.0.0.0 --workers 20 --port 8989
 Restart=on-failure
