@@ -4,9 +4,8 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/path/to/fileglancer-central
+WorkingDirectory=/opt/deploy/fileglancer-central
 ExecStart=/usr/local/bin/pixi run -e central uvicorn fileglancer_central.app:app --host 0.0.0.0 --workers 20 --port 8989
-ExecStart=/usr/bin/env pixi run -e central uvicorn fileglancer_central.app:app --host 0.0.0.0 --workers 20 --port 8989
 Restart=on-failure
 RestartSec=5s
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
