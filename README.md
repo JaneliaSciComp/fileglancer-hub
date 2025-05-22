@@ -58,15 +58,35 @@ sudo systemctl start fileglancer-central
 sudo systemctl start fileglancer-hub
 ```
 
+### Proxy Installation
+1. install nginx
+```bash
+yum install nginx
+```
+2. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
+```bash
+sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
+```
+3. enable the service
+```bash
+sudo systemctl enable nginx
+```
+4. start the service
+```bash
+sudo systemctl start nginx
+```
+
 ## Administration
 
-### Check the status of the services
+### Hub status checks
+
 ```bash
 sudo systemctl status fileglancer-central
 sudo systemctl status fileglancer-hub
 ```
 
 ### Check the logs of the services
+
 ```bash
 sudo journalctl -u fileglancer-central
 sudo journalctl -u fileglancer-hub
