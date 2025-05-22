@@ -32,27 +32,38 @@ In production the servers need to run as root in order to allow for setuid privi
 
 1. Download and install pixi into `/usr/local/bin`
 ```bash
-curl -fsSL https://pixi.sh/install.sh -o install.sh
-sudo PIXI_HOME=/usr/local sh install.sh
+curl -fsSL https://pixi.sh/install.sh | sh
+sudo cp /groups/scicompsoft/home/$USER/.pixi/bin/pixi /usr/local/bin/
 ```
 
-2. Modify the service file to point to the correct working directory
+2. Create the working directories
 ```bash
-sudo nano fileglancer.service
+sudo mkdir -p /opt/deploy/fileglancer-central
+sudo mkdir -p /opt/deploy/fileglancer-hub
 ```
-- change the `WorkingDirectory` to point to the directory where you cloned this repository
 
-3. Install the systemd service files
+3. Create a file at `/opt/deploy/fileglancer-central/.env` with the following content:
+```bash
+FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
+
+FGC_CONFLUENCE_URL=https://wikis.janelia.org
+FGC_CONFLUENCE_TOKEN=<token here>
+
+FGC_JIRA_URL=https://issues.hhmi.org/issues
+FGC_JIRA_TOKEN=<token here>
+```
+
+4. Install the systemd service files
 ```bash
 sudo cp fileglancer-central.service /etc/systemd/system/fileglancer-central.service
 sudo cp fileglancer-hub.service /etc/systemd/system/fileglancer-hub.service
 ```
-4. Enable the services
+5. Enable the services
 ```bash
 sudo systemctl enable fileglancer-central
 sudo systemctl enable fileglancer-hub
 ```
-5. Start the service
+6. Start the service
 ```bash
 sudo systemctl start fileglancer-central
 sudo systemctl start fileglancer-hub
