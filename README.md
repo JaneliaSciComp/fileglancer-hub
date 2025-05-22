@@ -42,7 +42,7 @@ sudo mkdir -p /opt/deploy/fileglancer-central
 sudo mkdir -p /opt/deploy/fileglancer-hub
 ```
 
-3. Create a file at `/opt/deploy/fileglancer-central/.env` with the following content:
+3. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content:
 ```bash
 FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
 
@@ -78,11 +78,31 @@ yum install nginx
 ```bash
 sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 ```
-3. enable the service
+3. disable the default server block
+- comment out the default server block `server {}`
+```bash
+sudo nano /etc/nginx/nginx.conf
+```
+
+4. obtain the SSL certificate for *.int.janelia.org and install it in `/etc/nginx/certs/`
+```bash
+sudo mkdir -p /etc/nginx/certs/
+sudo cp cert.pem /etc/nginx/certs/default.crt
+sudo cp key.pem /etc/nginx/certs/default.key
+```
+- make sure the permissions are correct
+```bash
+sudo chown root:root /etc/nginx/certs/default.crt
+sudo chown root:root /etc/nginx/certs/default.key
+sudo chmod 644 /etc/nginx/certs/default.crt
+sudo chmod 600 /etc/nginx/certs/default.key
+```
+
+5. enable the service
 ```bash
 sudo systemctl enable nginx
 ```
-4. start the service
+6. start the service
 ```bash
 sudo systemctl start nginx
 ```

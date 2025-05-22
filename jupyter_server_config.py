@@ -8,6 +8,4 @@ c.ServerApp.jpserver_extensions = {
     "notebook_shim": False,
 }
 
-#.jpserver_extensions = <LazyConfigValue value={'jupyterhub': True, 'fileglancer': True, 'jupyter_lsp': True, 'jupyter_server_terminals': True, 'jupyterlab': True, 'notebook_shim': True}>
-
-
+c.Fileglancer.central_url='http://127.0.0.1:8989'
