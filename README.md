@@ -88,6 +88,6 @@ sudo systemctl status fileglancer-hub
 ### Check the logs of the services
 
 ```bash
-sudo journalctl -u fileglancer-central
-sudo journalctl -u fileglancer-hub
+sudo journalctl -u fileglancer-central -f
+sudo journalctl -u fileglancer-hub -f
 ```
