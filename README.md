@@ -42,7 +42,7 @@ sudo mkdir -p /opt/deploy/fileglancer-central
 sudo mkdir -p /opt/deploy/fileglancer-hub
 ```
 
-3. Create a file at `/opt/deploy/fileglancer-central/.env` with the following content:
+3. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content:
 ```bash
 FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
 
