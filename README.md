@@ -78,11 +78,17 @@ yum install nginx
 ```bash
 sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 ```
-3. enable the service
+3. remove the default server block
+```bash
+sudo nano /etc/nginx/nginx.conf
+```
+- comment out the default server block `server {}`
+
+4. enable the service
 ```bash
 sudo systemctl enable nginx
 ```
-4. start the service
+5. start the service
 ```bash
 sudo systemctl start nginx
 ```
