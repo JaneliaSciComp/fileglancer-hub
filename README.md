@@ -78,17 +78,31 @@ yum install nginx
 ```bash
 sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 ```
-3. remove the default server block
+3. disable the default server block
+- comment out the default server block `server {}`
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
-- comment out the default server block `server {}`
 
-4. enable the service
+4. obtain the SSL certificate for *.int.janelia.org and install it in `/etc/nginx/certs/`
+```bash
+sudo mkdir -p /etc/nginx/certs/
+sudo cp cert.pem /etc/nginx/certs/default.crt
+sudo cp key.pem /etc/nginx/certs/default.key
+```
+- make sure the permissions are correct
+```bash
+sudo chown root:root /etc/nginx/certs/default.crt
+sudo chown root:root /etc/nginx/certs/default.key
+sudo chmod 644 /etc/nginx/certs/default.crt
+sudo chmod 600 /etc/nginx/certs/default.key
+```
+
+5. enable the service
 ```bash
 sudo systemctl enable nginx
 ```
-5. start the service
+6. start the service
 ```bash
 sudo systemctl start nginx
 ```
