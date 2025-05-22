@@ -7,12 +7,12 @@ channels = ["conda-forge"]
 platforms = ["linux-64", "osx-64"]
 preview = ["pixi-build"]
 
-[tasks]
-start = "python hub_launcher.py"
-
 [dependencies]
 python = "*"
 pip = "*"
+
+[feature.hub.tasks]
+start = "python hub_launcher.py"
 
 [feature.hub.dependencies]
 jupyterlab = ">=4.4.2"
@@ -20,6 +20,9 @@ jupyterhub = ">=5.3.0"
 
 [feature.hub.pypi-dependencies]
 fileglancer = "*"
+
+[feature.central.tasks]
+start = "uvicorn fileglancer_central.app:app --host 0.0.0.0 --workers 20 --port 8989"
 
 [feature.central.pypi-dependencies]
 fileglancer-central = "*"
