@@ -1,4 +1,5 @@
 .pixi
+.env
 cookie_secret
 jupyterhub_cookie_secret
 jupyterhub.sqlite
