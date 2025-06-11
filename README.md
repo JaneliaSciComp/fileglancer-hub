@@ -74,17 +74,23 @@ sudo systemctl start fileglancer-hub
 ```bash
 yum install nginx
 ```
-2. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
+2. set up the static path for the fileglancer assets
+```bash
+find /opt/deploy/fileglancer-hub/ -name "assets"
+```
+Use this path to replace the `<path_to_fileglancer_assets>` placeholder of the nginx configuration file `nginx.conf` in this repository.
+
+3. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
 ```bash
 sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 ```
-3. disable the default server block
+4. disable the default server block
 - comment out the default server block `server {}`
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
 
-4. obtain the SSL certificate for *.int.janelia.org and install it in `/etc/nginx/certs/`
+5. obtain the SSL certificate for *.int.janelia.org and install it in `/etc/nginx/certs/`
 ```bash
 sudo mkdir -p /etc/nginx/certs/
 sudo cp cert.pem /etc/nginx/certs/default.crt
@@ -98,11 +104,11 @@ sudo chmod 644 /etc/nginx/certs/default.crt
 sudo chmod 600 /etc/nginx/certs/default.key
 ```
 
-5. enable the service
+6. enable the service
 ```bash
 sudo systemctl enable nginx
 ```
-6. start the service
+7. start the service
 ```bash
 sudo systemctl start nginx
 ```
