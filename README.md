@@ -72,7 +72,7 @@ sudo systemctl start fileglancer-hub
 ### Proxy Installation
 1. install nginx
 ```bash
-yum install nginx
+sudo yum install nginx
 ```
 2. set up the static path for the fileglancer assets
 ```bash
