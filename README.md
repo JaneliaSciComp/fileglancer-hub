@@ -72,18 +72,20 @@ sudo systemctl start fileglancer-hub
 ```bash
 sudo yum install nginx
 ```
-2. set up the static path for the fileglancer assets
-```bash
-find /opt/deploy/fileglancer-hub/ -name "assets"
-```
-Use this path to replace the `<path_to_fileglancer_assets>` placeholder of the nginx configuration file `nginx.conf` in this repository.
 
-3. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
+2. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
 ```bash
 sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 ```
+
+3. set up the static path for the fileglancer assets
+```bash
+find /opt/deploy/fileglancer-hub/ -name "assets"
+```
+Use this path to replace the `<path_to_fileglancer_assets>` placeholder in the nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
+
 4. disable the default server block
-- comment out the default server block `server {}`
+- comment out the default server block in the main Nginx configuration file
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
@@ -94,6 +96,7 @@ sudo mkdir -p /etc/nginx/certs/
 sudo cp cert.pem /etc/nginx/certs/default.crt
 sudo cp key.pem /etc/nginx/certs/default.key
 ```
+
 - make sure the permissions are correct
 ```bash
 sudo chown root:root /etc/nginx/certs/default.crt
@@ -106,6 +109,7 @@ sudo chmod 600 /etc/nginx/certs/default.key
 ```bash
 sudo systemctl enable nginx
 ```
+
 7. start the service
 ```bash
 sudo systemctl start nginx
@@ -118,6 +122,7 @@ sudo systemctl start nginx
 ```bash
 sudo systemctl status fileglancer-central
 sudo systemctl status fileglancer-hub
+sudo systemctl status nginx
 ```
 
 ### Check the logs of the services
@@ -125,4 +130,5 @@ sudo systemctl status fileglancer-hub
 ```bash
 sudo journalctl -u fileglancer-central -f
 sudo journalctl -u fileglancer-hub -f
+sudo journalctl -u nginx -f
 ```
