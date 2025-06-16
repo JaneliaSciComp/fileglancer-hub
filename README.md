@@ -1,36 +1,32 @@
 # fileglancer-hub
 
-Scripts and configuration files for deploying Fileglancer with all its bells and whistles. Deploys a [fileglancer-central](https://github.com/JaneliaSciComp/fileglancer-central) server and a JupyterHub customized with the [fileglancer](https://github.com/JaneliaSciComp/fileglancer) extension.
+Scripts and configuration files for deploying Fileglancer in production at Janelia. This includes a [fileglancer-central](https://github.com/JaneliaSciComp/fileglancer-central) server and a JupyterHub instance customized with the [fileglancer](https://github.com/JaneliaSciComp/fileglancer) extension, as well as an Nginx reverse proxy server.
 
-## Installation
+## Development
 
-- clone this repository
+Assumes you have a working [Pixi](https://pixi.sh) installation.
+
+1. Clone this repository
 ```bash
 git clone git@github.com:JaneliaSciComp/fileglancer-hub.git
 cd fileglancer-hub
 ```
 
-## Deployment
-
-### Development
-
-- Assumes you have a working [pixi](https://pixi.sh) installation.
-
-- Start the Fileglancer Central server
+2. Start the Fileglancer Central server
 ```bash
 pixi run -e central start
 ```
 
-- Start the Fileglancer Hub server
+3. Start the Fileglancer Hub server
 ```bash
 pixi run -e hub start
 ```
 
-### Production
+## Production
 
 In production the servers need to run as root in order to allow for setuid priviledge. 
 
-1. Download and install pixi into `/usr/local/bin`
+1. Download and install Pixi into `/usr/local/bin`
 ```bash
 curl -fsSL https://pixi.sh/install.sh | sh
 sudo cp /groups/scicompsoft/home/$USER/.pixi/bin/pixi /usr/local/bin/
@@ -38,8 +34,10 @@ sudo cp /groups/scicompsoft/home/$USER/.pixi/bin/pixi /usr/local/bin/
 
 2. Create the working directories
 ```bash
-sudo mkdir -p /opt/deploy/fileglancer-central
-sudo mkdir -p /opt/deploy/fileglancer-hub
+sudo install -d -m 2775 -o $USER -g $(id -gn) /opt/deploy /opt/data
+mkdir -p /opt/deploy/fileglancer-hub
+mkdir -p /opt/deploy/fileglancer-central
+mkdir -p /opt/data/fileglancer-central
 ```
 
 3. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content:
