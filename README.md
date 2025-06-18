@@ -39,8 +39,13 @@ mkdir -p /opt/deploy/fileglancer-hub
 mkdir -p /opt/deploy/fileglancer-central
 mkdir -p /opt/data/fileglancer-central
 ```
-
-3. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content:
+3. Clone the repository into `/opt/deploy/fileglancer-hub`
+```bash
+cd /opt/deploy/
+git clone git@github.com:JaneliaSciComp/fileglancer-hub.git
+cd fileglancer-hub
+```
+4. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content:
 ```bash
 FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
 
@@ -51,17 +56,17 @@ FGC_JIRA_URL=https://issues.hhmi.org/issues
 FGC_JIRA_TOKEN=<token here>
 ```
 
-4. Install the systemd service files
+5. Install the systemd service files
 ```bash
 sudo cp fileglancer-central.service /etc/systemd/system/fileglancer-central.service
 sudo cp fileglancer-hub.service /etc/systemd/system/fileglancer-hub.service
 ```
-5. Enable the services
+6. Enable the services
 ```bash
 sudo systemctl enable fileglancer-central
 sudo systemctl enable fileglancer-hub
 ```
-6. Start the service
+7. Start the service
 ```bash
 sudo systemctl start fileglancer-central
 sudo systemctl start fileglancer-hub
@@ -83,6 +88,11 @@ sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 find /opt/deploy/fileglancer-hub/ -name "assets"
 ```
 Use this path to replace the `<path_to_fileglancer_assets>` placeholder in the nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
+
+```bash
+find /opt/deploy/fileglancer-hub/ -name "ui"
+```
+Use this path to replace the `<path_to_fileglancer_ui_directory>` placeholder in the nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
 
 4. disable the default server block
 - comment out the default server block in the main Nginx configuration file
