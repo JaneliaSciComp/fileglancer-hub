@@ -43,6 +43,16 @@
             href="{{ static_url('css/style.min.css') }}"
             type="text/css" />
     {% endblock stylesheet %}
+    <style>
+     .btn-jupyter {
+       background-color:#058d96;
+       border-color:#006d74;
+     }
+     .btn-jupyter:hover {
+       background-color:#006d74;
+       border-color:#025a60;
+     }
+    </style>
     {% block favicon %}
       <link rel="icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
     {% endblock favicon %}
