@@ -62,6 +62,11 @@ FGC_CONFLUENCE_TOKEN=<token here>
 
 FGC_JIRA_URL=https://issues.hhmi.org/issues
 FGC_JIRA_TOKEN=<token here>
+
+OAUTH_CLIENT_ID=<client id from okta>
+OAUTH_CLIENT_SECRET=<client secret from okta>
+OAUTH_DOMAIN=<okta domain, e.g. hhmi.okta.com>
+OAUTH_CALLBACK_DOMAIN=<the domain of the hub, e.g. fileglancer.int.janelia.org>
 ```
 
 5. Install the systemd service files
