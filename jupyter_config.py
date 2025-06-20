@@ -17,6 +17,7 @@
 
 from pathlib import Path
 import pkg_resources
+import os
 
 
 # the command the hub should spawn for the user. It is a single user jupyter
@@ -38,7 +39,7 @@ c.Spawner.environment = {}
 # this auto-spawns uiservers without user interaction
 c.JupyterHub.implicit_spawn_seconds = 0.01
 
-# apply cylc styling to jupyterhub
+# apply styling to jupyterhub
 c.JupyterHub.template_vars = {
     'hub_title': 'Fileglancer',
     'hub_subtitle': ''
@@ -61,3 +62,37 @@ c.ConfigurableHTTPProxy.pid_file = 'jupyterhub-proxy.pid'
 # Lab as a result of being granted the ``access:servers`` permission in Jupyter
 # Hub.
 c.Authenticator.allow_all = True
+
+# set up oauth service
+c.JupyterHub.authenticator_class = 'generic-oauth'
+
+# OAuth2 application info
+# -----------------------
+c.GenericOAuthenticator.client_id = os.environ.get("OAUTH_CLIENT_ID")
+c.GenericOAuthenticator.client_secret = os.environ.get("OAUTH_CLIENT_SECRET")
+
+# Identity provider info
+# ----------------------
+provider_domain = os.environ.get("OAUTH_DOMAIN")
+callback_domain = os.environ.get("OAUTH_CALLBACK_DOMAIN")
+
+
+c.GenericOAuthenticator.authorize_url = f"https://{provider_domain}/oauth2/v1/authorize"
+c.GenericOAuthenticator.token_url = f"https://{provider_domain}/oauth2/v1/token"
+c.GenericOAuthenticator.userdata_url = f"https://{provider_domain}/oauth2/v1/userinfo"
+c.GenericOAuthenticator.oauth_callback_url = f"https://{callback_domain}/hub/oauth_callback"
+
+
+# What we request about the user
+# ------------------------------
+# scope represents requested information about the user, and since we configure
+# this against an OIDC based identity provider, we should request "openid" at
+# least.
+#
+# In this example we include "email" and "groups" as well, and then declare that
+# we should set the username based on the "email" key in the response, and read
+# group membership from the "groups" key in the response.
+#
+c.GenericOAuthenticator.scope = ["openid", "profile"]
+c.GenericOAuthenticator.username_claim = "name"
+# c.GenericOAuthenticator.auth_state_groups_key = "oauth_user.groups"
