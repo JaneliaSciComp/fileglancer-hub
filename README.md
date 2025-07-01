@@ -24,6 +24,11 @@ pixi run -e hub start
 
 ## Production Deployment
 
+When working with a shared server, make sure to set your umask so that everything is writeable by the group:
+```bash
+umask 002
+```
+
 ### Fileglancer Installation
 
 In production the servers need to run as root in order to allow for setuid priviledge. 

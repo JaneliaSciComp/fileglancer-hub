@@ -1,5 +1,5 @@
 .pixi
-.env
+.env*
 *.pid
 cookie_secret
 jupyterhub_cookie_secret
