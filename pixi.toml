@@ -1,10 +1,16 @@
 [project]
 name = "fileglancer-hub"
-version = "0.0.1"
-description = "JupyterHub integration for Fileglancer"
+version = "0.1.0"
+description = "Fileglancer deployment"
 authors = ["Jody Clements <clementsj@janelia.hhmi.org>"]
+authors = [
+    "Allison Truhlar <truhlara@janelia.hhmi.org>",
+    "Jody Clements <clementsj@janelia.hhmi.org>",
+    "Cristian Goina <goinac@janelia.hhmi.org>",
+    "Konrad Rokicki <rokickik@janelia.hhmi.org>"
+]
 channels = ["conda-forge"]
-platforms = ["linux-64", "osx-64"]
+platforms = ["linux-64"]
 preview = ["pixi-build"]
 
 [dependencies]
@@ -19,13 +25,13 @@ jupyterlab = ">=4.4.2"
 jupyterhub = ">=5.3.0"
 
 [feature.hub.pypi-dependencies]
-fileglancer = "*"
+fileglancer = "0.4.0"
 
 [feature.central.tasks]
 start = "uvicorn fileglancer_central.app:app --host 127.0.0.1 --workers 20 --port 8989"
 
 [feature.central.pypi-dependencies]
-fileglancer-central = "*"
+fileglancer-central = "0.5.0"
 
 [environments]
 hub = { features = ["hub"], solve-group = "hub" }
