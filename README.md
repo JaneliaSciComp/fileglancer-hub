@@ -2,7 +2,7 @@
 
 Scripts and configuration files for deploying Fileglancer in production at Janelia. This includes a [fileglancer-central](https://github.com/JaneliaSciComp/fileglancer-central) server and a JupyterHub instance customized with the [fileglancer](https://github.com/JaneliaSciComp/fileglancer) extension, as well as an Nginx reverse proxy server.
 
-## Development
+## Development Deployment
 
 Assumes you have a working [Pixi](https://pixi.sh) installation.
 
@@ -22,7 +22,9 @@ pixi run -e central start
 pixi run -e hub start
 ```
 
-## Production
+## Production Deployment
+
+### Fileglancer Installation
 
 In production the servers need to run as root in order to allow for setuid priviledge. 
 
@@ -45,8 +47,9 @@ cd /opt/deploy/
 git clone git@github.com:JaneliaSciComp/fileglancer-hub.git
 cd fileglancer-hub
 ```
-4. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content:
+4. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content (modify the `FGC_EXTERNAL_PROXY_URL` to use the server hostname):
 ```bash
+FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/fg/files
 FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
 
 FGC_CONFLUENCE_URL=https://wikis.janelia.org
@@ -72,42 +75,42 @@ sudo systemctl start fileglancer-central
 sudo systemctl start fileglancer-hub
 ```
 
-### Proxy Installation
-1. install nginx
+### NGINX Reverse Proxy Installation
+1. Install nginx
 ```bash
 sudo yum install nginx
 ```
 
-2. copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
+2. Copy the nginx configuration file to `/etc/nginx/conf.d/fileglancer.conf`
 ```bash
 sudo cp nginx.conf /etc/nginx/conf.d/fileglancer.conf
 ```
 
-3. set up the static path for the fileglancer assets
+3. Set up the static path for the Fileglancer assets
 ```bash
 find /opt/deploy/fileglancer-hub/ -name "assets"
 ```
-Use this path to replace the `<path_to_fileglancer_assets>` placeholder in the nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
+Use this path to replace the `<path_to_fileglancer_assets>` placeholder in the Nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
 
 ```bash
 find /opt/deploy/fileglancer-hub/ -name "ui"
 ```
-Use this path to replace the `<path_to_fileglancer_ui_directory>` placeholder in the nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
+Use this path to replace the `<path_to_fileglancer_ui_directory>` placeholder in the Nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
 
-4. disable the default server block
+4. Disable the default server block
 - comment out the default server block in the main Nginx configuration file
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
 
-5. obtain the SSL certificate for *.int.janelia.org and install it in `/etc/nginx/certs/`
+5. Obtain the SSL certificate for *.int.janelia.org and install it in `/etc/nginx/certs/`
 ```bash
 sudo mkdir -p /etc/nginx/certs/
 sudo cp cert.pem /etc/nginx/certs/default.crt
 sudo cp key.pem /etc/nginx/certs/default.key
 ```
 
-- make sure the permissions are correct
+- Make sure the permissions are correct
 ```bash
 sudo chown root:root /etc/nginx/certs/default.crt
 sudo chown root:root /etc/nginx/certs/default.key
@@ -115,17 +118,36 @@ sudo chmod 644 /etc/nginx/certs/default.crt
 sudo chmod 600 /etc/nginx/certs/default.key
 ```
 
-6. enable the service
+6. Enable the service
 ```bash
 sudo systemctl enable nginx
 ```
 
-7. start the service
+7. Start the service
 ```bash
 sudo systemctl start nginx
 ```
 
 ## Administration
+
+### Updating to a new version
+
+First, update to the version of Fileglancer you want to deploy:
+```bash
+cd /opt/deploy/fileglancer-hub
+git pull
+```
+
+Then restart the services:
+
+```bash
+sudo systemctl restart fileglancer-central
+sudo systemctl restart fileglancer-hub
+sudo systemctl restart nginx
+```
+
+Make sure to check the logs and smoketest the service to ensure everything came up correctly.
+
 
 ### Hub status checks
 
