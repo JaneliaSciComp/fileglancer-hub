@@ -2,7 +2,6 @@
 name = "fileglancer-hub"
 version = "0.1.0"
 description = "Fileglancer deployment"
-authors = ["Jody Clements <clementsj@janelia.hhmi.org>"]
 authors = [
     "Allison Truhlar <truhlara@janelia.hhmi.org>",
     "Jody Clements <clementsj@janelia.hhmi.org>",
