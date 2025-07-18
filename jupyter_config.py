@@ -45,6 +45,9 @@ c.JupyterHub.template_vars = {
     'hub_subtitle': ''
 }
 
+# Configure the logo
+c.JupyterHub.logo_file = str(Path(__file__).parent / 'logo.svg')
+
 # only bind to localhost to prevent unsecured external access
 c.JupyterHub.bind_url = 'http://127.0.0.1:8000'
 

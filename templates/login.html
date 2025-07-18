@@ -16,9 +16,21 @@
               Warning: JupyterHub seems to be served over an unsecured HTTP connection.
               We strongly recommend enabling HTTPS for JupyterHub.
             </p>
+            <!-- Add your custom logo -->
+            <div class="logo-container" style="text-align: center; margin-bottom: 20px;">
+              <img src="/hub/logo" alt="Fileglancer Logo" style="max-width: 200px;">
+            </div>
+            <!-- Welcome message -->
+            <div class="welcome-message" style="text-align: center; margin-bottom: 25px;">
+              <h2>Welcome to Fileglancer</h2>
+              <p>Please sign in to access your files and data.</p>
+            </div>
             <a role="button"
                class='btn btn-jupyter btn-lg'
-               href='{{ authenticator_login_url | safe }}'>Sign in with {{ login_service }}</a>
+               href='{{ authenticator_login_url | safe }}'>
+               <i class="fa fa-sign-in" aria-hidden="true"></i> 
+               Login to Fileglancer
+            </a>
           </div>
         {% else %}
           <form action="{{ authenticator_login_url | safe }}"
