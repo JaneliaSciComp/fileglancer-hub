@@ -94,5 +94,5 @@ c.GenericOAuthenticator.oauth_callback_url = f"https://{callback_domain}/hub/oau
 # group membership from the "groups" key in the response.
 #
 c.GenericOAuthenticator.scope = ["openid", "profile"]
-c.GenericOAuthenticator.username_claim = "name"
+c.GenericOAuthenticator.username_claim = "displayName"
 # c.GenericOAuthenticator.auth_state_groups_key = "oauth_user.groups"
