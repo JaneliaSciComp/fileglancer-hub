@@ -9,6 +9,7 @@ ExecStart=/usr/local/bin/pixi run -e hub start
 Restart=on-failure
 RestartSec=5s
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
+EnvironmentFile=/opt/deploy/fileglancer-hub/.env.hub
 
 [Install]
 WantedBy=multi-user.target

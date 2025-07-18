@@ -52,7 +52,7 @@ cd /opt/deploy/
 git clone git@github.com:JaneliaSciComp/fileglancer-hub.git
 cd fileglancer-hub
 ```
-4. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content (modify the `FGC_EXTERNAL_PROXY_URL` to use the server hostname):
+4. Create a file at `/opt/deploy/fileglancer-hub/.env.central` with the following content (modify the `FGC_EXTERNAL_PROXY_URL` to use the server hostname):
 ```bash
 FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/fg/files
 FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
@@ -63,18 +63,25 @@ FGC_CONFLUENCE_TOKEN=<token here>
 FGC_JIRA_URL=https://issues.hhmi.org/issues
 FGC_JIRA_TOKEN=<token here>
 ```
+5. Create a file at `/opt/deploy/fileglancer-hub/.env.hub` with the following content:
+```bash
+OAUTH_CLIENT_ID=<client id from okta>
+OAUTH_CLIENT_SECRET=<client secret from okta>
+OAUTH_DOMAIN=<okta domain, e.g. hhmi.okta.com>
+OAUTH_CALLBACK_DOMAIN=<the domain of the hub, e.g. fileglancer.int.janelia.org>
+```
 
-5. Install the systemd service files
+6. Install the systemd service files
 ```bash
 sudo cp fileglancer-central.service /etc/systemd/system/fileglancer-central.service
 sudo cp fileglancer-hub.service /etc/systemd/system/fileglancer-hub.service
 ```
-6. Enable the services
+7. Enable the services
 ```bash
 sudo systemctl enable fileglancer-central
 sudo systemctl enable fileglancer-hub
 ```
-7. Start the service
+8. Start the service
 ```bash
 sudo systemctl start fileglancer-central
 sudo systemctl start fileglancer-hub
