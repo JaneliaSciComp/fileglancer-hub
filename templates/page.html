@@ -33,7 +33,7 @@
     <meta charset="utf-8">
     <title>
       {%- block title -%}
-        JupyterHub
+        Janelia Fileglancer
       {%- endblock title -%}
     </title>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -42,6 +42,14 @@
       <link rel="stylesheet"
             href="{{ static_url('css/style.min.css') }}"
             type="text/css" />
+      <link rel="stylesheet"
+            href="{{ base_url }}templates/custom.css"
+            type="text/css" />
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
     {% endblock stylesheet %}
     <style>
      .btn-jupyter {
@@ -54,7 +62,7 @@
      }
     </style>
     {% block favicon %}
-      <link rel="icon" href="{{ static_url('favicon.ico') }}" type="image/x-icon">
+      <link rel="icon" href="/fg/logo.svg" type="image/x-icon">
     {% endblock favicon %}
     {% block scripts %}
       <script src="{{static_url("components/bootstrap/dist/js/bootstrap.bundle.min.js") }}" type="text/javascript" charset="utf-8"></script>
