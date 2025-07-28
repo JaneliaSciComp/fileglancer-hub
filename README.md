@@ -57,11 +57,9 @@ cd fileglancer-hub
 FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/fg/files
 FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
 
-FGC_CONFLUENCE_URL=https://wikis.janelia.org
-FGC_CONFLUENCE_TOKEN=<token here>
-
-FGC_JIRA_URL=https://issues.hhmi.org/issues
-FGC_JIRA_TOKEN=<token here>
+FGC_ATLASSIAN_URL=https://wikis.janelia.org
+FGC_ATLASSIAN_USERNAME=<username here>
+FGC_ATLASSIAN_TOKEN=<token here>
 ```
 5. Create a file at `/opt/deploy/fileglancer-hub/.env.hub` with the following content:
 ```bash
