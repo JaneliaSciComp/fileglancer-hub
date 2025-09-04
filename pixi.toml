@@ -31,7 +31,7 @@ fileglancer = "==0.6.0"
 start = "uvicorn fileglancer_central.app:app --host 127.0.0.1 --workers 20 --port 8989"
 
 [feature.central.pypi-dependencies]
-fileglancer-central = "==0.7.0"
+fileglancer-central = "==0.7.1"
 
 [environments]
 hub = { features = ["hub"], solve-group = "hub" }
