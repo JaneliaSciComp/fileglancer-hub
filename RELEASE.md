@@ -10,7 +10,15 @@ Follow the Fileglancer [release steps](https://github.com/JaneliaSciComp/filegla
 
 ## Update versions in Fileglancer Hub
 
-Update the versions in `pixi.toml` (in this repo) to point to the latest versions of both `fileglancer` and `fileglancer-central`. Push these changes to GitHub.
+Update the versions in `pixi.toml` (in this repo) to point to the latest versions of both `fileglancer` and `fileglancer-central`. 
+
+Run the installs, to update the `pixi.lock` file:
+```
+pixi install -e central
+pixi install -e hub
+```
+
+Push all of these changes to GitHub.
 
 ## Dev Deployment
 
