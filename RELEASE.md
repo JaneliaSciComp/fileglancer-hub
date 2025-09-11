@@ -31,7 +31,7 @@ git pull
 
 Announce a deployment in progress in the #fileglancer-support channel on Slack, and stop the services:
 ```
-sudo systemctl stop fileglancer
+sudo systemctl stop fileglancer-hub
 sudo systemctl stop fileglancer-central
 ```
 

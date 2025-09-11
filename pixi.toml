@@ -25,7 +25,7 @@ jupyterhub = ">=5.3.0"
 oauthenticator = ">=17.3.0"
 
 [feature.hub.pypi-dependencies]
-fileglancer = "==0.7.0"
+fileglancer = "==0.7.1"
 
 [feature.central.tasks]
 start = "uvicorn fileglancer_central.app:app --host 127.0.0.1 --workers 20 --port 8989"
