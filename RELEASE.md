@@ -1,12 +1,12 @@
 # Releasing Fileglancer
 
-## Release Fileglancer to PyPI
-
-Follow the [release steps](https://github.com/JaneliaSciComp/fileglancer/blob/main/RELEASE.md) to push a new version of `fileglancer` to [PyPI](https://pypi.org/project/fileglancer/).
-
 ## Release Fileglancer Central to PyPI
 
-If there are changes to the central server code, follow the [release steps](https://github.com/JaneliaSciComp/fileglancer-central/blob/main/RELEASE.md) to push a new version of `fileglancer-central` to [PyPI](https://pypi.org/project/fileglancer-central/).
+If there are changes to the central server code, follow its [release steps](https://github.com/JaneliaSciComp/fileglancer-central/blob/main/RELEASE.md) to push a new version of `fileglancer-central` to [PyPI](https://pypi.org/project/fileglancer-central/).
+
+## Release Fileglancer to PyPI
+
+Follow the Fileglancer [release steps](https://github.com/JaneliaSciComp/fileglancer/blob/main/RELEASE.md) to push a new version of `fileglancer` to [PyPI](https://pypi.org/project/fileglancer/).
 
 ## Update versions in Fileglancer Hub
 
