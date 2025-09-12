@@ -302,7 +302,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-hb9d3cd8_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py313h536fd9c_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb8e6e7a_2.conda
-      - pypi: https://files.pythonhosted.org/packages/da/e3/e94ba42eb9f6416eb6cd76cbf154e4c77ca10976464a5d57cb4254a6589c/fileglancer-0.7.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/50/7d/f99870d56b152878d9331c6da84e5a81c4ac804840a8a13b4e1e0c81c72a/fileglancer-0.7.2-py3-none-any.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
   sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
@@ -1012,10 +1012,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/da/e3/e94ba42eb9f6416eb6cd76cbf154e4c77ca10976464a5d57cb4254a6589c/fileglancer-0.7.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/50/7d/f99870d56b152878d9331c6da84e5a81c4ac804840a8a13b4e1e0c81c72a/fileglancer-0.7.2-py3-none-any.whl
   name: fileglancer
-  version: 0.7.0
-  sha256: e5d6eab27d084382f8a0434db5d830524361d5b1d07a2600fb6ae98ddd5bf391
+  version: 0.7.2
+  sha256: aeab8565ad06b9592d0763fa70ef2f60fbdbf1f47fb01a7644b34132addbb140
   requires_dist:
   - jupyter-server>=2.4.0,<3
   - jupyterlab>=4.3.0,<5
