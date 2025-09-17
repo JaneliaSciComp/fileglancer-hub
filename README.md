@@ -174,3 +174,39 @@ sudo journalctl -u fileglancer-central -f
 sudo journalctl -u fileglancer-hub -f
 sudo journalctl -u nginx -f
 ```
+
+### Maintenance Mode
+
+The nginx configuration includes maintenance mode functionality that will display a maintenance page when needed.
+
+#### Enabling Maintenance Mode
+
+1. Copy the example maintenance page to the nginx html directory:
+```bash
+sudo cp maintenance.html.example /etc/nginx/html/maintenance.html
+```
+
+2. Edit the maintenance page to update the estimated completion time:
+```bash
+sudo nano /etc/nginx/html/maintenance.html
+```
+Replace `[UPDATE WITH ACTUAL TIME]` with the actual estimated completion time.
+
+3. Reload nginx to activate maintenance mode:
+```bash
+sudo systemctl reload nginx
+```
+
+#### Disabling Maintenance Mode
+
+1. Remove the maintenance page:
+```bash
+sudo rm /etc/nginx/html/maintenance.html
+```
+
+2. Reload nginx:
+```bash
+sudo systemctl reload nginx
+```
+
+**Note:** When maintenance mode is active, all requests to the main site and `/fc/files/` endpoints will show the maintenance page instead of the normal application. Static assets like `/fg/assets/` and `/fg/logo.svg` will continue to work normally to ensure the maintenance page displays correctly.
