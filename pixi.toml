@@ -28,7 +28,7 @@ oauthenticator = ">=17.3.0"
 fileglancer = "==0.7.2"
 
 [feature.central.tasks]
-start = "uvicorn fileglancer_central.app:app --host 127.0.0.1 --workers 20 --port 8989"
+start = "uvicorn fileglancer_central.app:app --host 127.0.0.1 --workers 10 --port 8989"
 
 [feature.central.pypi-dependencies]
 fileglancer-central = "==0.8.0"
