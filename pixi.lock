@@ -49,7 +49,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/85/32/10bb5764d90a8eee674e9dc6f4db6a0ab47c8c4d0d83c27f7c39ac415a4d/click-8.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6e/c6/ac0b6c1e2d138f1002bcf799d330bd6d85084fece321e662a14223794041/Deprecated-1.2.18-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/50/b3/b51f09c2ba432a576fe63758bddc81f78f0c6309d9e5c10d194313bf021e/fastapi-0.115.12-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/59/f3/695a2d43f1c961a2a19403f1a117df7c0a0ae2592f2802ffbc84ef4cef0f/fileglancer_central-0.8.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/63/41/c8458435eaf2751f08400d83d9390d3f7aaad617ada9e3757c481710c4df/fileglancer_central-0.9.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ea/a5/deb39325cbbea6cd0a46db8ccd76150ae2fcbe60d63243d9df4a0b8c3205/frozenlist-1.6.0-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/9d/70/b200194e25ae86bc57077f695b6cc47ee3118becf54130c5514456cf8dac/greenlet-3.2.2-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -68,6 +68,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/e8/31/aa8da88ca0eadbabd0a639788a6da13bb2ff6edbbb9f29aa786450a30a91/pandas-2.2.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/45/5f/3faee66fc930dfb5da509e34c6ac7128870631c0e3582987fad161fcb4b1/propcache-0.3.1-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/43/25/c603cd81402e69edf7daa59b1602bd41eb9859e2824b8c0855d748366ac9/psycopg2_binary-2.9.10-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/e7/12/46b65f3534d099349e38ef6ec98b1a5a81f42536d17e0ba382c28c67ba67/pydantic-2.11.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/eb/3c/f4abd740877a35abade05e437245b192f9d0ffb48bbbbd708df33d3cda37/pydantic_core-2.33.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/b6/5f/d6d641b490fd3ec2c4c13b4244d68deea3a1b970a97be64f34fb5504ff72/pydantic_settings-2.9.1-py3-none-any.whl
@@ -302,7 +303,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-hb9d3cd8_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py313h536fd9c_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb8e6e7a_2.conda
-      - pypi: https://files.pythonhosted.org/packages/50/7d/f99870d56b152878d9331c6da84e5a81c4ac804840a8a13b4e1e0c81c72a/fileglancer-0.7.2-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/9e/20/259df5f6da9cc5ab6e32aff99ac3c19f4387d533b95d77f4ac9c25584893/fileglancer-0.8.0-py3-none-any.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
   sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
@@ -1012,10 +1013,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/50/7d/f99870d56b152878d9331c6da84e5a81c4ac804840a8a13b4e1e0c81c72a/fileglancer-0.7.2-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/9e/20/259df5f6da9cc5ab6e32aff99ac3c19f4387d533b95d77f4ac9c25584893/fileglancer-0.8.0-py3-none-any.whl
   name: fileglancer
-  version: 0.7.2
-  sha256: aeab8565ad06b9592d0763fa70ef2f60fbdbf1f47fb01a7644b34132addbb140
+  version: 0.8.0
+  sha256: 26e288cc59a152842987b1d0086427ac4619ca5b9565c77bc0db13b0b0fa0840
   requires_dist:
   - jupyter-server>=2.4.0,<3
   - jupyterlab>=4.3.0,<5
@@ -1030,10 +1031,10 @@ packages:
   - pytest-jupyter[server]>=0.6.0 ; extra == 'test'
   - requests-mock ; extra == 'test'
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/59/f3/695a2d43f1c961a2a19403f1a117df7c0a0ae2592f2802ffbc84ef4cef0f/fileglancer_central-0.8.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/63/41/c8458435eaf2751f08400d83d9390d3f7aaad617ada9e3757c481710c4df/fileglancer_central-0.9.0-py3-none-any.whl
   name: fileglancer-central
-  version: 0.8.0
-  sha256: 8a29aa9dedea052f12fdd9430425407b0c60d8b890d36994dcc84d34f5d3bb57
+  version: 0.9.0
+  sha256: 2488c312d81b6ecf198023477c7ecb6bbc9c4538924a540fd088a7f809fc8f07
   requires_dist:
   - fastapi>=0.115
   - uvicorn>=0.34
@@ -1048,6 +1049,7 @@ packages:
   - atlassian-python-api>=3.41
   - lxml>=5.3.1
   - x2s3>=0.9.1
+  - psycopg2-binary>=2.9.9,<3
   - pytest ; extra == 'test'
   - pytest-cov ; extra == 'test'
   - pytest-html ; extra == 'test'
@@ -2455,6 +2457,11 @@ packages:
   - pkg:pypi/psutil?source=hash-mapping
   size: 475101
   timestamp: 1740663284505
+- pypi: https://files.pythonhosted.org/packages/43/25/c603cd81402e69edf7daa59b1602bd41eb9859e2824b8c0855d748366ac9/psycopg2_binary-2.9.10-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+  name: psycopg2-binary
+  version: 2.9.10
+  sha256: 8608c078134f0b3cbd9f89b34bd60a943b23fd33cc5f065e8d5f840061bd0673
+  requires_python: '>=3.8'
 - conda: https://conda.anaconda.org/conda-forge/noarch/ptyprocess-0.7.0-pyhd8ed1ab_1.conda
   sha256: a7713dfe30faf17508ec359e0bc7e0983f5d94682492469bd462cdaae9c64d83
   md5: 7d9daffbb8d8e0af0f769dbbcd173a54
