@@ -6,7 +6,7 @@ If there are changes to the central server code, follow its [release steps](http
 
 ## Release Fileglancer to PyPI
 
-Follow the Fileglancer [release steps](https://github.com/JaneliaSciComp/fileglancer/blob/main/RELEASE.md) to push a new version of `fileglancer` to [PyPI](https://pypi.org/project/fileglancer/).
+Follow the Fileglancer [release steps](https://github.com/JaneliaSciComp/fileglancer/blob/main/docs/Release.md) to push a new version of `fileglancer` to [PyPI](https://pypi.org/project/fileglancer/).
 
 ## Update versions in Fileglancer Hub
 
