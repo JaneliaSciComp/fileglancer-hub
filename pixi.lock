@@ -44,12 +44,13 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/50/cd/30110dc0ffcf3b131156077b90e9f60ed75711223f306da4db08eff8403b/beautifulsoup4-4.13.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/62/8c/213511a505af2239a673de4de145d013379275c569185187922f93dbdf14/boto3-1.37.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/88/54/772118f15b5990173aa5264946cc8c9ff70c8f02d72ee6d63167a985188c/botocore-1.37.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/6c/56/3124f61d37a7a4e7cc96afc5492c78ba0cb551151e530b54669ddd1436ef/cachetools-6.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4a/7e/3db2bd1b1f9e95f7cddca6d6e75e2f2bd9f51b1246e546d88addca0106bd/certifi-2025.4.26-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e2/28/ffc026b26f441fc67bd21ab7f03b313ab3fe46714a14b516f931abe1a2d8/charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/85/32/10bb5764d90a8eee674e9dc6f4db6a0ab47c8c4d0d83c27f7c39ac415a4d/click-8.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/6e/c6/ac0b6c1e2d138f1002bcf799d330bd6d85084fece321e662a14223794041/Deprecated-1.2.18-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/50/b3/b51f09c2ba432a576fe63758bddc81f78f0c6309d9e5c10d194313bf021e/fastapi-0.115.12-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/63/41/c8458435eaf2751f08400d83d9390d3f7aaad617ada9e3757c481710c4df/fileglancer_central-0.9.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/69/ef/a07c7374957ae346afd8c70d5edd5bf7e5c75ad18b9089e3514eb0a0f300/fileglancer_central-1.0.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ea/a5/deb39325cbbea6cd0a46db8ccd76150ae2fcbe60d63243d9df4a0b8c3205/frozenlist-1.6.0-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/9d/70/b200194e25ae86bc57077f695b6cc47ee3118becf54130c5514456cf8dac/greenlet-3.2.2-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -303,7 +304,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-1.3.1-hb9d3cd8_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py313h536fd9c_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb8e6e7a_2.conda
-      - pypi: https://files.pythonhosted.org/packages/9f/80/639dad66d0543111d88b63cae9271393b1180bed5aaa098d564bfa12e33f/fileglancer-1.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/d2/80/28c3d3c903af6efea89d50b308de426d275f1c2dbb364af811f8a10f6885/fileglancer-1.1.0-py3-none-any.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
   sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
@@ -809,6 +810,11 @@ packages:
   - pkg:pypi/cached-property?source=hash-mapping
   size: 11065
   timestamp: 1615209567874
+- pypi: https://files.pythonhosted.org/packages/6c/56/3124f61d37a7a4e7cc96afc5492c78ba0cb551151e530b54669ddd1436ef/cachetools-6.2.0-py3-none-any.whl
+  name: cachetools
+  version: 6.2.0
+  sha256: 1c76a8960c0041fcc21097e357f882197c79da0dbff766e7317890a65d7d8ba6
+  requires_python: '>=3.9'
 - pypi: https://files.pythonhosted.org/packages/4a/7e/3db2bd1b1f9e95f7cddca6d6e75e2f2bd9f51b1246e546d88addca0106bd/certifi-2025.4.26-py3-none-any.whl
   name: certifi
   version: 2025.4.26
@@ -1013,10 +1019,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/9f/80/639dad66d0543111d88b63cae9271393b1180bed5aaa098d564bfa12e33f/fileglancer-1.0.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/d2/80/28c3d3c903af6efea89d50b308de426d275f1c2dbb364af811f8a10f6885/fileglancer-1.1.0-py3-none-any.whl
   name: fileglancer
-  version: 1.0.0
-  sha256: f088c3bb13d46627a0d871225f1e138d0a1af4e3d527973d6706c4e14a345a8f
+  version: 1.1.0
+  sha256: 3cbe10b71842654c4a1f6339c24e1e2076078d9a881ecc898199fa9c1ae16959
   requires_dist:
   - jupyter-server>=2.4.0,<3
   - jupyterlab>=4.3.0,<5
@@ -1031,10 +1037,10 @@ packages:
   - pytest-jupyter[server]>=0.6.0 ; extra == 'test'
   - requests-mock ; extra == 'test'
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/63/41/c8458435eaf2751f08400d83d9390d3f7aaad617ada9e3757c481710c4df/fileglancer_central-0.9.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/69/ef/a07c7374957ae346afd8c70d5edd5bf7e5c75ad18b9089e3514eb0a0f300/fileglancer_central-1.0.0-py3-none-any.whl
   name: fileglancer-central
-  version: 0.9.0
-  sha256: 2488c312d81b6ecf198023477c7ecb6bbc9c4538924a540fd088a7f809fc8f07
+  version: 1.0.0
+  sha256: db86e18a34e8e9075c427e6ad68ffd0c2237d3462de6d994816ad8d448e96140
   requires_dist:
   - fastapi>=0.115
   - uvicorn>=0.34
@@ -1050,6 +1056,7 @@ packages:
   - lxml>=5.3.1
   - x2s3>=0.9.1
   - psycopg2-binary>=2.9.9,<3
+  - cachetools>=5.0.0
   - pytest ; extra == 'test'
   - pytest-cov ; extra == 'test'
   - pytest-html ; extra == 'test'
