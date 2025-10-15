@@ -43,8 +43,7 @@ sudo cp /groups/scicompsoft/home/$USER/.pixi/bin/pixi /usr/local/bin/
 ```bash
 sudo install -d -m 2775 -o $USER -g $(id -gn) /opt/deploy /opt/data
 mkdir -p /opt/deploy/fileglancer-hub
-mkdir -p /opt/deploy/fileglancer-central
-mkdir -p /opt/data/fileglancer-central
+mkdir -p /opt/data/fileglancer # optional, if you want to use a sqlite database
 ```
 3. Clone the repository into `/opt/deploy/fileglancer-hub`
 ```bash
@@ -52,37 +51,40 @@ cd /opt/deploy/
 git clone git@github.com:JaneliaSciComp/fileglancer-hub.git
 cd fileglancer-hub
 ```
-4. Create a file at `/opt/deploy/fileglancer-hub/.env.central` with the following content (modify the `FGC_EXTERNAL_PROXY_URL` to use the server hostname):
+4. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content (modify the `FGC_EXTERNAL_PROXY_URL` to use the server hostname):
 ```bash
-FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/fg/files
-FGC_DB_URL=sqlite:////opt/data/fileglancer-central/sqlite.db
+FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/fc/files
+
+FGC_DB_URL=sqlite:////opt/data/fileglancer/sqlite.db
+# FGC_DB_URL=postgresql://<username>:<password>@<host>:<port>/<database>
+FGC_DB_POOL_SIZE=5
+FGC_DB_MAX_OVERFLOW=0
+
+FGC_LOG_LEVEL=DEBUG
 
 FGC_ATLASSIAN_URL=https://wikis.janelia.org
 FGC_ATLASSIAN_USERNAME=<username here>
 FGC_ATLASSIAN_TOKEN=<token here>
-```
-5. Create a file at `/opt/deploy/fileglancer-hub/.env.hub` with the following content:
-```bash
-OAUTH_CLIENT_ID=<client id from okta>
-OAUTH_CLIENT_SECRET=<client secret from okta>
-OAUTH_DOMAIN=<okta domain, e.g. hhmi.okta.com>
-OAUTH_CALLBACK_DOMAIN=<the domain of the hub, e.g. fileglancer.int.janelia.org>
+
+FGC_ENABLE_OKTA_AUTH=True // set to False to enable simple insecure auth for testing
+
+FGC_OAUTH_CLIENT_ID=<client id from okta>
+FGC_OAUTH_CLIENT_SECRET=<client secret from okta>
+FGC_OAUTH_DOMAIN=<okta domain, e.g. hhmi.okta.com>
+FGC_OAUTH_CALLBACK_DOMAIN=<the domain of the hub, e.g. fileglancer.int.janelia.org>
 ```
 
 6. Install the systemd service files
 ```bash
-sudo cp fileglancer-central.service /etc/systemd/system/fileglancer-central.service
-sudo cp fileglancer-hub.service /etc/systemd/system/fileglancer-hub.service
+sudo cp fileglancer.service /etc/systemd/system/fileglancer.service
 ```
 7. Enable the services
 ```bash
-sudo systemctl enable fileglancer-central
-sudo systemctl enable fileglancer-hub
+sudo systemctl enable fileglancer
 ```
 8. Start the service
 ```bash
-sudo systemctl start fileglancer-central
-sudo systemctl start fileglancer-hub
+sudo systemctl start fileglancer
 ```
 
 ### NGINX Reverse Proxy Installation
@@ -151,8 +153,7 @@ git pull
 Then restart the services:
 
 ```bash
-sudo systemctl restart fileglancer-central
-sudo systemctl restart fileglancer-hub
+sudo systemctl restart fileglancer
 sudo systemctl restart nginx
 ```
 
@@ -162,16 +163,14 @@ Make sure to check the logs and smoketest the service to ensure everything came 
 ### Hub status checks
 
 ```bash
-sudo systemctl status fileglancer-central
-sudo systemctl status fileglancer-hub
+sudo systemctl status fileglancer
 sudo systemctl status nginx
 ```
 
 ### Check the logs of the services
 
 ```bash
-sudo journalctl -u fileglancer-central -f
-sudo journalctl -u fileglancer-hub -f
+sudo journalctl -u fileglancer -f
 sudo journalctl -u nginx -f
 ```
 
