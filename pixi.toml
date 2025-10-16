@@ -16,23 +16,8 @@ preview = ["pixi-build"]
 python = "*"
 pip = "*"
 
-[feature.hub.tasks]
-start = "python hub_launcher.py"
+[tasks]
+start = "uvicorn fileglancer.app:app --host 127.0.0.1 --workers 10 --port 8989"
 
-[feature.hub.dependencies]
-jupyterlab = ">=4.4.2"
-jupyterhub = ">=5.3.0"
-oauthenticator = ">=17.3.0"
-
-[feature.hub.pypi-dependencies]
+[pypi-dependencies]
 fileglancer = "==1.1.1"
-
-[feature.central.tasks]
-start = "uvicorn fileglancer_central.app:app --host 127.0.0.1 --workers 10 --port 8989"
-
-[feature.central.pypi-dependencies]
-fileglancer-central = "==1.0.0"
-
-[environments]
-hub = { features = ["hub"], solve-group = "hub" }
-central = { features = ["central"], solve-group = "central" }
