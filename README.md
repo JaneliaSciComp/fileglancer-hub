@@ -1,10 +1,10 @@
 # fileglancer-hub
 
-Scripts and configuration files for deploying Fileglancer in production at Janelia. This includes a [fileglancer-central](https://github.com/JaneliaSciComp/fileglancer-central) server and a JupyterHub instance customized with the [fileglancer](https://github.com/JaneliaSciComp/fileglancer) extension, as well as an Nginx reverse proxy server.
+Scripts and configuration files for deploying Fileglancer in production at Janelia. This deploys the [fileglancer](https://github.com/JaneliaSciComp/fileglancer) FastAPI server behind Uvicorn, as well as an Nginx reverse proxy server.
 
 ## Development Deployment
 
-Assumes you have a working [Pixi](https://pixi.sh) installation.
+This assumes you have a working [Pixi](https://pixi.sh) installation.
 
 1. Clone this repository
 ```bash
@@ -12,14 +12,9 @@ git clone git@github.com:JaneliaSciComp/fileglancer-hub.git
 cd fileglancer-hub
 ```
 
-2. Start the Fileglancer Central server
+2. Start the Fileglancer server
 ```bash
-pixi run -e central start
-```
-
-3. Start the Fileglancer Hub server
-```bash
-pixi run -e hub start
+pixi run start
 ```
 
 ## Production Deployment
@@ -36,7 +31,7 @@ In production the servers need to run as root in order to allow for setuid privi
 1. Download and install Pixi into `/usr/local/bin`
 ```bash
 curl -fsSL https://pixi.sh/install.sh | sh
-sudo cp /groups/scicompsoft/home/$USER/.pixi/bin/pixi /usr/local/bin/
+sudo cp $HOME/.pixi/bin/pixi /usr/local/bin/
 ```
 
 2. Create the working directories
@@ -151,7 +146,6 @@ git pull
 ```
 
 Then restart the services:
-
 ```bash
 sudo systemctl restart fileglancer
 sudo systemctl restart nginx
@@ -170,8 +164,8 @@ sudo systemctl status nginx
 ### Check the logs of the services
 
 ```bash
-sudo journalctl -u fileglancer -f
-sudo journalctl -u nginx -f
+sudo journalctl -o cat -fu fileglancer
+sudo journalctl -fu nginx
 ```
 
 ### Maintenance Mode
