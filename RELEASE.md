@@ -9,11 +9,24 @@ Follow the Fileglancer [release steps](https://github.com/JaneliaSciComp/filegla
 Update the version in `pixi.toml` (in this repo) to point to the latest version of `fileglancer`.
 
 Run the install, to update the `pixi.lock` file:
+
 ```
 pixi install
 ```
 
 Push all of these changes to GitHub.
+
+**Note**: if Pixi cannot find the new package version on Pypi, you may need to clear your Pixi Pypi cache.
+
+```
+pixi clean cache --pypi
+```
+
+If this command fails to clear the cache, manually clear it using the directory it prints out. E.g.,
+
+```
+rm -r <path/to/.cache/rattler/cache/uv-cache>
+```
 
 ## Dev Deployment
 
@@ -25,6 +38,7 @@ git pull
 ```
 
 Announce a deployment in progress in the #fileglancer-support channel on Slack, and stop the services:
+
 ```
 sudo systemctl stop fileglancer
 ```
@@ -41,4 +55,3 @@ Smoke test the installation to make sure everything is working as expected.
 ## Prod Deployment
 
 Repeat the above instructions on the production server.
-
