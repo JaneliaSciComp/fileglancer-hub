@@ -1,5 +1,5 @@
 [Unit]
-Description=Fileglancer Central Service
+Description=Fileglancer Service
 After=network.target
 
 [Service]
