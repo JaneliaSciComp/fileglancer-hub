@@ -179,7 +179,7 @@ The nginx configuration includes maintenance mode functionality that will displa
 sudo cp maintenance.html.example /etc/nginx/html/maintenance.html
 ```
 
-2. Edit the maintenance page to update the estimated completion time:
+2. If desired, edit the maintenance page to uncomment the estimated completion time section:
 ```bash
 sudo nano /etc/nginx/html/maintenance.html
 ```
