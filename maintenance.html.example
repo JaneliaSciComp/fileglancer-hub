@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FileGlancer - Maintenance</title>
+    <title>Fileglancer - Maintenance</title>
     <link rel="icon" href="/fg/logo.svg" type="image/x-icon">
     <style>
         body {
@@ -80,19 +80,21 @@
         </svg>
         <h1>Scheduled Maintenance</h1>
 
+        <!--
         <div class="eta">
             <strong>Estimated completion:</strong> [UPDATE WITH ACTUAL TIME]
         </div>
+        -->
 
         <p>
-            FileGlancer is currently undergoing scheduled maintenance to improve performance and add new features.
+            Fileglancer is currently undergoing scheduled maintenance to improve performance and add new features.
         </p>
         <p>
             We apologize for any inconvenience and appreciate your patience.
         </p>
 
         <div class="contact">
-            For urgent matters, please contact <a href="mailto:support@hhmi.org">support</a>.
+            For urgent matters, please contact the <a href="mailto:support@hhmi.org">Help Desk</a>.
         </div>
     </div>
 </body>
