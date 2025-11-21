@@ -13,7 +13,7 @@ platforms = ["linux-64"]
 preview = ["pixi-build"]
 
 [dependencies]
-python = "*"
+python = ">=3.14.0,<4"
 pip = "*"
 
 [tasks]
