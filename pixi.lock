@@ -59,7 +59,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/6e/c6/ac0b6c1e2d138f1002bcf799d330bd6d85084fece321e662a14223794041/Deprecated-1.2.18-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cb/a3/460c57f094a4a165c84a1341c373b0a4f5ec6ac244b998d5021aade89b77/ecdsa-0.19.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/98/b6/4f620d7720fc0a754c8c1b7501d73777f6ba43b57c8ab99671f4d7441eb8/fastapi-0.121.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/0f/a4/2a715be585288d7db50170d66cce5b0e5b770ce5fafefc62934bfc6fbe9f/fileglancer-2.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/11/92/c55f428861662496f60843758f99a78728a6b82efcdb2db037df5c8fa72f/fileglancer-2.3.0a0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a7/b2/fabede9fafd976b991e9f1b9c8c873ed86f202889b864756f240ce6dd855/frozenlist-1.8.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/72/60/fc56c62046ec17f6b0d3060564562c64c862948c9d4bc8aa807cf5bd74f4/greenlet-3.2.4-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -109,8 +109,9 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/5c/23/c7abc0ca0a1526a0774eca151daeb8de62ec457e77262b66b359c3c7679e/tzdata-2025.2-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a7/c2/fe1e52489ae3122415c51f387e221dd0773709bad6c6cdaa599e8a2c5185/urllib3-2.5.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/ee/d9/d88e73ca598f4f6ff671fb5fde8a32925c2e08a637303a1d12883c7305fa/uvicorn-0.38.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b5/35/60249e9fd07b32c665192cec7af29e06c7cd96fa1d08b84f012a56a0b38e/uvloop-0.22.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/c3/f7/c983d2762bcce2326c317c26a6a1e7016f7eb039c27cdf5c4e30f4160f31/wrapt-1.17.3-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/0b/63/7bc51fedcdd13857efcb31897fab58ad00b143eaf35eb641fe7051256edb/x2s3-0.9.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/7f/21/f52cd11559059e686e7ecfe40c4746ee957f96779ce22a8f76d5b4d62516/x2s3-1.1.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/f5/e7/d8c5a7752fef68205296201f8ec2bf718f5c805a7a7e9880576c67600658/yarl-1.22.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
@@ -445,10 +446,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/0f/a4/2a715be585288d7db50170d66cce5b0e5b770ce5fafefc62934bfc6fbe9f/fileglancer-2.2.1-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/11/92/c55f428861662496f60843758f99a78728a6b82efcdb2db037df5c8fa72f/fileglancer-2.3.0a0-py3-none-any.whl
   name: fileglancer
-  version: 2.2.1
-  sha256: dbd9a565bcad7a6acd93b7410942191dcbd794410b2547f46f7fe690502a3c23
+  version: 2.3.0a0
+  sha256: 3f0765516b83e6361e46c06dd2b2d16de7909d2ac410414a40e2eb4702b7dc17
   requires_dist:
   - aiosqlite>=0.21.0
   - alembic>=1.17.0
@@ -469,7 +470,7 @@ packages:
   - python-jose>=3.5.0,<4
   - sqlalchemy>=2.0.44
   - uvicorn>=0.38.0
-  - x2s3>=0.9.1
+  - x2s3>=1.1.0
   - hatch ; extra == 'release'
   - twine ; extra == 'release'
   - coverage ; extra == 'test'
@@ -1288,15 +1289,32 @@ packages:
   - watchfiles>=0.13 ; extra == 'standard'
   - websockets>=10.4 ; extra == 'standard'
   requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/b5/35/60249e9fd07b32c665192cec7af29e06c7cd96fa1d08b84f012a56a0b38e/uvloop-0.22.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
+  name: uvloop
+  version: 0.22.1
+  sha256: c1955d5a1dd43198244d47664a5858082a3239766a839b2102a269aaff7a4e25
+  requires_dist:
+  - aiohttp>=3.10.5 ; extra == 'test'
+  - flake8~=6.1 ; extra == 'test'
+  - psutil ; extra == 'test'
+  - pycodestyle~=2.11.0 ; extra == 'test'
+  - pyopenssl~=25.3.0 ; extra == 'test'
+  - mypy>=0.800 ; extra == 'test'
+  - setuptools>=60 ; extra == 'dev'
+  - cython~=3.0 ; extra == 'dev'
+  - sphinx~=4.1.2 ; extra == 'docs'
+  - sphinxcontrib-asyncio~=0.3.0 ; extra == 'docs'
+  - sphinx-rtd-theme~=0.5.2 ; extra == 'docs'
+  requires_python: '>=3.8.1'
 - pypi: https://files.pythonhosted.org/packages/c3/f7/c983d2762bcce2326c317c26a6a1e7016f7eb039c27cdf5c4e30f4160f31/wrapt-1.17.3-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
   name: wrapt
   version: 1.17.3
   sha256: 281262213373b6d5e4bb4353bc36d1ba4084e6d6b5d242863721ef2bf2c2930b
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/0b/63/7bc51fedcdd13857efcb31897fab58ad00b143eaf35eb641fe7051256edb/x2s3-0.9.1-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/7f/21/f52cd11559059e686e7ecfe40c4746ee957f96779ce22a8f76d5b4d62516/x2s3-1.1.0-py3-none-any.whl
   name: x2s3
-  version: 0.9.1
-  sha256: 3e7cd38eab11e3537d87dcaa298523492bb206769fccb9dacb5f6f2d8760a1d7
+  version: 1.1.0
+  sha256: 13c3d74abf005e7b5d0febe0eddb168afdd9ce8aafa8227009785701ac22d94f
   requires_dist:
   - aiobotocore>=2.22
   - boto3>=1.37
@@ -1310,6 +1328,7 @@ packages:
   - pytest>=8.3
   - starlette>=0.46
   - uvicorn>=0.34
+  - uvloop>=0.21
   - jinja2>=3.1
   - pytest ; extra == 'test'
   - pytest-cov ; extra == 'test'
