@@ -48,7 +48,7 @@ cd fileglancer-hub
 ```
 4. Create a file at `/opt/deploy/fileglancer-hub/.env` with the following content (modify the `FGC_EXTERNAL_PROXY_URL` to use the server hostname):
 ```bash
-FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/fc/files
+FGC_EXTERNAL_PROXY_URL=https://fileglancer-dev.int.janelia.org/files
 
 FGC_DB_URL=sqlite:////opt/data/fileglancer/sqlite.db
 # FGC_DB_URL=postgresql://<username>:<password>@<host>:<port>/<database>
