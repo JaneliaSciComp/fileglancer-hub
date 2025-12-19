@@ -59,7 +59,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/6e/c6/ac0b6c1e2d138f1002bcf799d330bd6d85084fece321e662a14223794041/Deprecated-1.2.18-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cb/a3/460c57f094a4a165c84a1341c373b0a4f5ec6ac244b998d5021aade89b77/ecdsa-0.19.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/98/b6/4f620d7720fc0a754c8c1b7501d73777f6ba43b57c8ab99671f4d7441eb8/fastapi-0.121.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/83/c4/e3b31023c8b3289caac313d0b2244032565eec45047cd087684441bc9929/fileglancer-2.3.2a0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/da/47/ebaeeb266e185692b1cebed61aca9d0673577e831ef5ebc84d8148293139/fileglancer-2.3.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a7/b2/fabede9fafd976b991e9f1b9c8c873ed86f202889b864756f240ce6dd855/frozenlist-1.8.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/72/60/fc56c62046ec17f6b0d3060564562c64c862948c9d4bc8aa807cf5bd74f4/greenlet-3.2.4-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -446,10 +446,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/83/c4/e3b31023c8b3289caac313d0b2244032565eec45047cd087684441bc9929/fileglancer-2.3.2a0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/da/47/ebaeeb266e185692b1cebed61aca9d0673577e831ef5ebc84d8148293139/fileglancer-2.3.2-py3-none-any.whl
   name: fileglancer
-  version: 2.3.2a0
-  sha256: c3c29c103bf6d9fad35461702900b1eb0033d74a666d01015d2d529eeb196287
+  version: 2.3.2
+  sha256: de4241e12502392f9a0fc286ff54cb9c3bd43d3a96a1fd085110424f1541a7fc
   requires_dist:
   - aiosqlite>=0.21.0
   - alembic>=1.17.0
