@@ -52,20 +52,19 @@ sudo journalctl -u fileglancer -f
 
 ## 4. Run integration tests against the dev deployment
 
-To test the full application stack prior to a production release, ensure `.env` file in this repo contains the following:
+To test the full application stack prior to a production release, ensure the `.env` file in this repo contains the following:
 
 ```
-FGC_ENABLE_TEST_API_KEY=true
-FGC_TEST_API_KEY:'<your-generated-key>'
+FGC_TEST_API_KEY='<your-generated-key>'
 ```
 
-If a FGC_TEST_API_KEY is not already configured, create a new one. Add this key to both the `.env` file for fileglancer-hub and fileglancer-janelia/playwright.
+If a `FGC_TEST_API_KEY` is not already configured, create a new one. 
 
 ```bash
 python -c "import secrets; print(secrets.token_urlsafe(32))"
 ```
 
-The same value for `FGC_TEST_API_KEY` needs to be added to the `.env` file in the repo with your Playwright tests. See the [fileglancer-janelia](https://github.com/JaneliaSciComp/fileglancer-janelia) repo for example Playwright tests and further documentation of this feature.
+Add the generated key as the value for `FCG_TEST_API_KEY` in both the `.env` file for fileglancer-hub and the `.env` file in fileglancer-janelia/playwright. See the [fileglancer-janelia](https://github.com/JaneliaSciComp/fileglancer-janelia) repo for example Playwright tests and further documentation of this feature.
 
 ## 5. Make a new stable release to PyPI
 
