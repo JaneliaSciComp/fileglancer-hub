@@ -60,7 +60,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/6e/c6/ac0b6c1e2d138f1002bcf799d330bd6d85084fece321e662a14223794041/Deprecated-1.2.18-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/cb/a3/460c57f094a4a165c84a1341c373b0a4f5ec6ac244b998d5021aade89b77/ecdsa-0.19.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/98/b6/4f620d7720fc0a754c8c1b7501d73777f6ba43b57c8ab99671f4d7441eb8/fastapi-0.121.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/39/fa/ae494ef477229aacbb7aee254e2cb79096343b1d893e4c513f5036e20d0d/fileglancer-2.6.0a5-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/16/b2/b663976f919f3cd15618d756b60cd8ab067b0321f27ec8c4900f503583c8/fileglancer-2.6.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a7/b2/fabede9fafd976b991e9f1b9c8c873ed86f202889b864756f240ce6dd855/frozenlist-1.8.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/72/60/fc56c62046ec17f6b0d3060564562c64c862948c9d4bc8aa807cf5bd74f4/greenlet-3.2.4-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -427,10 +427,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/39/fa/ae494ef477229aacbb7aee254e2cb79096343b1d893e4c513f5036e20d0d/fileglancer-2.6.0a5-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/16/b2/b663976f919f3cd15618d756b60cd8ab067b0321f27ec8c4900f503583c8/fileglancer-2.6.0-py3-none-any.whl
   name: fileglancer
-  version: 2.6.0a5
-  sha256: af937e42ead95b3b421210bdcf2c7788e5dfe60cd66b735b7a2f004afe6b4b8e
+  version: 2.6.0
+  sha256: d2935a28ff2be8a2c1100f9e17f9de42a26ba60d346911d7a830db6eb0a4bce0
   requires_dist:
   - alembic>=1.17.0
   - atlassian-python-api>=4.0.7
