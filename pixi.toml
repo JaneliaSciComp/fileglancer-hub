@@ -17,7 +17,7 @@ python = ">=3.14.0,<4"
 pip = "*"
 
 [tasks]
-start = "uvicorn fileglancer.app:app --host 127.0.0.1 --workers 10 --port 8989 --no-access-log"
+start = "uvicorn fileglancer.server:app --host 127.0.0.1 --workers 10 --port 8989 --no-access-log"
 
 [pypi-dependencies]
-fileglancer = "==2.6.0"
+fileglancer = "==2.7.0"
