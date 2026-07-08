@@ -57,7 +57,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/84/d0/205d54408c08b13550c733c4b85429e7ead111c7f0014309637425520a9a/deprecated-1.3.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/51/79/119091c98e2bf49e24ed9f3ae69f816d715d2904aefa6a2baa039a2ba0b0/ecdsa-0.19.2-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/e0/82/45359b62a067409bd929ae8a56b8ed13e5a8c8a61194b3c236920999ab83/fastapi-0.136.3-py3-none-any.whl
-      - pypi: https://files.pythonhosted.org/packages/f0/7f/41ed672ac9cf82ca7bd2d13a2e3bcd72d6fb81d051adef6095da2eaba735/fileglancer-2.9.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/f5/cd/38cf45f14a4843f52ac9079ace86b0f1a0942f0897b62598274be1b77831/fileglancer-3.0.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/a7/b2/fabede9fafd976b991e9f1b9c8c873ed86f202889b864756f240ce6dd855/frozenlist-1.8.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/07/49/d4cad6e5381a50947bb973d2f6cf6592621451b09368b8c20d9b8af49c5b/greenlet-3.4.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl
@@ -104,7 +104,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/ee/d9/d88e73ca598f4f6ff671fb5fde8a32925c2e08a637303a1d12883c7305fa/uvicorn-0.38.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b5/35/60249e9fd07b32c665192cec7af29e06c7cd96fa1d08b84f012a56a0b38e/uvloop-0.22.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/53/37/02af1867f5b1441aaeda9c82deed061b7cd1372572ddcd717f6df90b5e93/wrapt-2.1.2-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/c6/01/c330682e398978b2e151d9a6684826874e09b9319d565b6b6b73986093e5/x2s3-1.2.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/b0/6c/c25618e34b8ba7c26ef4f3f84df70e9e6c0fc8aa3806d04c1ab952051c8f/x2s3-1.3.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/42/2b/fef67d616931055bf3d6764885990a3ac647d68734a2d6a9e1d13de437a2/yarl-1.23.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
@@ -384,10 +384,10 @@ packages:
   - pydantic-settings>=2.0.0 ; extra == 'all'
   - pydantic-extra-types>=2.0.0 ; extra == 'all'
   requires_python: '>=3.10'
-- pypi: https://files.pythonhosted.org/packages/f0/7f/41ed672ac9cf82ca7bd2d13a2e3bcd72d6fb81d051adef6095da2eaba735/fileglancer-2.9.1-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/f5/cd/38cf45f14a4843f52ac9079ace86b0f1a0942f0897b62598274be1b77831/fileglancer-3.0.0-py3-none-any.whl
   name: fileglancer
-  version: 2.9.1
-  sha256: 9846c5a7685fffb21ce5c67ce28143c02677cb89324ae5d2520854a5e1875e32
+  version: 3.0.0
+  sha256: 6af63b9a27ce69fa52e6b7f9abdada878ad326bb13961b15b6ee232ab70ab10f
   requires_dist:
   - alembic>=1.17.0,<2
   - atlassian-python-api>=4.0.7,<5
@@ -408,7 +408,7 @@ packages:
   - python-jose>=3.5.0,<4
   - sqlalchemy>=2.0.44,<3
   - uvicorn>=0.38.0,<0.39
-  - x2s3>=1.2.0,<2
+  - x2s3>=1.3.0,<2
   - hatch ; extra == 'release'
   - twine ; extra == 'release'
   - coverage ; extra == 'test'
@@ -1191,10 +1191,10 @@ packages:
   - pytest ; extra == 'dev'
   - setuptools ; extra == 'dev'
   requires_python: '>=3.9'
-- pypi: https://files.pythonhosted.org/packages/c6/01/c330682e398978b2e151d9a6684826874e09b9319d565b6b6b73986093e5/x2s3-1.2.0-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/b0/6c/c25618e34b8ba7c26ef4f3f84df70e9e6c0fc8aa3806d04c1ab952051c8f/x2s3-1.3.0-py3-none-any.whl
   name: x2s3
-  version: 1.2.0
-  sha256: 1ae2eb80355498a23e03265cc0ed1eefddd4fbf021c4b09a99bfbfd30952c9c1
+  version: 1.3.0
+  sha256: deb292575bd242004a903ba1bd1892d6528a91f501d348b932322fbf4f4131fe
   requires_dist:
   - aiobotocore>=2.22
   - boto3>=1.37
