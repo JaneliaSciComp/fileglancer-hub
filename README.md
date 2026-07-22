@@ -124,7 +124,23 @@ find /opt/deploy/fileglancer-hub/ -name "ui"
 
 Use this path to replace the `<path_to_fileglancer_ui_directory>` placeholder in the Nginx configuration file (`/etc/nginx/conf.d/fileglancer.conf`).
 
-4. Disable the default server block
+4. Build and serve Neuroglancer
+
+Clone and build Neuroglancer from source (requires npm):
+
+```bash
+cd /opt/deploy
+git clone https://github.com/google/neuroglancer.git
+cd neuroglancer
+npm install
+npm run build
+```
+
+The build output lands in `/opt/deploy/neuroglancer/dist/client`. The `/neuroglancer/`
+location block in `nginx.conf` serves this directory directly. If you built to a
+different path, update the `alias` in that block accordingly.
+
+5. Disable the default server block
 
 - comment out the default server block in the main Nginx configuration file
 
@@ -132,7 +148,7 @@ Use this path to replace the `<path_to_fileglancer_ui_directory>` placeholder in
 sudo nano /etc/nginx/nginx.conf
 ```
 
-5. Obtain the SSL certificate for \*.int.janelia.org and install it in `/etc/nginx/certs/`
+6. Obtain the SSL certificate for \*.int.janelia.org and install it in `/etc/nginx/certs/`
 
 ```bash
 sudo mkdir -p /etc/nginx/certs/
@@ -149,13 +165,13 @@ sudo chmod 644 /etc/nginx/certs/default.crt
 sudo chmod 600 /etc/nginx/certs/default.key
 ```
 
-6. Enable the service
+7. Enable the service
 
 ```bash
 sudo systemctl enable nginx
 ```
 
-7. Start the service
+8. Start the service
 
 ```bash
 sudo systemctl start nginx
