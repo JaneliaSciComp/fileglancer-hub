@@ -167,7 +167,7 @@ sudo chmod 600 /etc/nginx/certs/default.key
 
 7. Set up the per-job app-service HTTPS proxy
 
-This lets a browser reach a running app service directly at `https://job-<id>.services.int.janelia.org/`. 
+This lets a browser reach a running app service directly at `https://job-<id>-<mac>.services.int.janelia.org/`. The `<mac>` label is a signature over the job id, keyed by Fileglancer's `session_secret_key`, so the subdomains cannot be enumerated.
 
 - **Wildcard SSL certificate for `*.services.int.janelia.org`** (or `*.services-dev.int.janelia.org` for dev). Install it as:
 
@@ -196,10 +196,12 @@ This lets a browser reach a running app service directly at `https://job-<id>.se
 
 - **`FGC_APPS__SERVICE_PROXY_DOMAIN` in `.env`** — set to the same domain as the DNS record and certificate above (e.g. `services.int.janelia.org`, or `services-dev.int.janelia.org` for dev), then restart the fileglancer service.
 
+- **`FGC_SESSION_SECRET_KEY` in `.env`** — required once the proxy domain is set; Fileglancer refuses to start without it, because the hostname labels are signed with it. Use a long random string (`openssl rand -hex 32`) and keep it stable: rotating it invalidates every live service URL along with every session.
+
 To verify the certificate nginx is actually serving for a given job hostname (bypasses browser cache):
 
 ```bash
-openssl s_client -connect job-<id>.services.int.janelia.org:443 -servername job-<id>.services.int.janelia.org </dev/null 2>/dev/null | openssl x509 -noout -subject
+openssl s_client -connect job-<id>-<mac>.services.int.janelia.org:443 -servername job-<id>-<mac>.services.int.janelia.org </dev/null 2>/dev/null | openssl x509 -noout -subject
 ```
 
 8. Enable the service
