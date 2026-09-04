@@ -165,13 +165,52 @@ sudo chmod 644 /etc/nginx/certs/default.crt
 sudo chmod 600 /etc/nginx/certs/default.key
 ```
 
-7. Enable the service
+7. Set up the per-job app-service HTTPS proxy
+
+This lets a browser reach a running app service directly at `https://job-<id>-<mac>.services.int.janelia.org/`. The `<mac>` label is a signature over the job id, keyed by Fileglancer's `session_secret_key`, so the subdomains cannot be enumerated.
+
+- **Wildcard SSL certificate for `*.services.int.janelia.org`** (or `*.services-dev.int.janelia.org` for dev). Install it as:
+
+  ```bash
+  sudo cp /path/to/services-cert.pem /etc/nginx/certs/services-wildcard.crt
+  sudo cp /path/to/services-key.pem /etc/nginx/certs/services-wildcard.key
+  sudo chown root:root /etc/nginx/certs/services-wildcard.crt /etc/nginx/certs/services-wildcard.key
+  sudo chmod 644 /etc/nginx/certs/services-wildcard.crt
+  sudo chmod 600 /etc/nginx/certs/services-wildcard.key
+  ```
+
+  If using Let's Encrypt, optionally symlink instead of copying so renewals stay live:
+
+  ```bash
+  sudo ln -sf /etc/letsencrypt/live/services.int.janelia.org/fullchain.pem /etc/nginx/certs/services-wildcard.crt
+  sudo ln -sf /etc/letsencrypt/live/services.int.janelia.org/privkey.pem  /etc/nginx/certs/services-wildcard.key
+  ```
+
+- **Resolver in `nginx.conf`** — The `resolver 127.0.0.53 valid=30s;` line in the repo is a placeholder. Find the host's real nameservers, edit the line to match, then reload:
+
+  ```bash
+  cat /etc/resolv.conf   # nameserver lines
+  sudo nano /etc/nginx/conf.d/fileglancer.conf   # update the resolver line
+  sudo systemctl reload nginx
+  ```
+
+- **`FGC_APPS__SERVICE_PROXY_DOMAIN` in `.env`** — set to the same domain as the DNS record and certificate above (e.g. `services.int.janelia.org`, or `services-dev.int.janelia.org` for dev), then restart the fileglancer service.
+
+- **`FGC_SESSION_SECRET_KEY` in `.env`** — required once the proxy domain is set; Fileglancer refuses to start without it, because the hostname labels are signed with it. Use a long random string (`openssl rand -hex 32`) and keep it stable: rotating it invalidates every live service URL along with every session.
+
+To verify the certificate nginx is actually serving for a given job hostname (bypasses browser cache):
+
+```bash
+openssl s_client -connect job-<id>-<mac>.services.int.janelia.org:443 -servername job-<id>-<mac>.services.int.janelia.org </dev/null 2>/dev/null | openssl x509 -noout -subject
+```
+
+8. Enable the service
 
 ```bash
 sudo systemctl enable nginx
 ```
 
-8. Start the service
+9. Start the service
 
 ```bash
 sudo systemctl start nginx
