@@ -140,6 +140,15 @@ The build output lands in `/opt/deploy/neuroglancer/dist/client`. The `/neurogla
 location block in `nginx.conf` serves this directory directly. If you built to a
 different path, update the `alias` in that block accordingly.
 
+On a dev or staging host without its own build, use the commented "Dev/staging
+variant" block in `nginx.conf` instead: it proxies production's
+`/neuroglancer/` under this host's origin. Editing Views in the embedded viewer
+only works when Neuroglancer is served from the same origin as Fileglancer, so
+`instance_template_url` in `viewers.config.yaml` must use this host's name
+(for example `https://fileglancer-dev.int.janelia.org/neuroglancer/#!{...}`).
+`FGC_NEUROGLANCER_URL` is a local-development passthrough and has no effect
+behind nginx, which serves `/neuroglancer/` before the request reaches the app.
+
 5. Disable the default server block
 
 - comment out the default server block in the main Nginx configuration file
