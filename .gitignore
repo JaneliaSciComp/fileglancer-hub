@@ -4,3 +4,11 @@
 cookie_secret
 jupyterhub_cookie_secret
 jupyterhub.sqlite
+
+# Deploy-specific configuration
+notifications.yaml
+viewers.config.yaml
+
+# Test and one-off files
+fileglancer.db
+.scratch
