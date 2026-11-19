@@ -57,7 +57,6 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2c/40/42ccf6f7f6adea241f51f236868b8f27076f072b22e194b197f1bafedd75/sqlalchemy-2.1.6-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
-      - pypi: https://files.pythonhosted.org/packages/2d/c2/4b339ccf6a64672ff04b537b7a592fe86bffd4bc763d6d3f221970696771/fileglancer-4.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/39/44/a46089266de32a0d809023b6bf31b80a1f26a46954446a7ce695a565cbea/authlib-1.9.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/39/88/4131c51ff87b7cd7f82a1194d0c0a2b7ca68c72d9da04c3b7e69ab91a79f/pydantic_settings-2.16.2-py3-none-any.whl
@@ -84,6 +83,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/7f/bc/3bb8965204ba51bbf4d021bc89d1357cd2179a17ef71b5fc429e21b511a2/aiobotocore-3.10.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/82/e7/3eb509c39b0c3a97e0ae0da6ce095aef85f46fd5c6978b6811fd9e435307/fileglancer-4.2.1-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/84/d0/205d54408c08b13550c733c4b85429e7ead111c7f0014309637425520a9a/deprecated-1.3.1-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/87/fb/99f81ac72ae23375f22b7afdb7642aba97c00a713c217124420147681a2f/mako-1.3.10-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/88/f9/16491d7ed2a919954993e48aa941b200f38040928474c9e85ea9e64222c3/pyyaml-6.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl
@@ -712,43 +712,6 @@ packages:
   - aiosqlite ; extra == 'aiosqlite'
   - sqlcipher3-binary ; extra == 'sqlcipher'
   requires_python: '>=3.11'
-- pypi: https://files.pythonhosted.org/packages/2d/c2/4b339ccf6a64672ff04b537b7a592fe86bffd4bc763d6d3f221970696771/fileglancer-4.2.0-py3-none-any.whl
-  name: fileglancer
-  version: 4.2.0
-  sha256: 09ec0fbadcfebacbf9ba8f7ade593786d29917a9eeecc98c0ffee7666eeef616
-  requires_dist:
-  - aiobotocore==3.10.0
-  - alembic==1.20.1
-  - atlassian-python-api==4.0.7
-  - authlib==1.9.1
-  - cachetools==6.2.6
-  - click==8.5.0
-  - cryptography==50.0.2
-  - fastapi==0.136.3
-  - httpx==0.28.1
-  - itsdangerous==2.2.0
-  - loguru==0.7.3
-  - packaging==26.3
-  - pandas==2.3.3
-  - psycopg2-binary==2.9.12
-  - psycopg[binary]==3.3.4
-  - py-cluster-api==0.8.1
-  - pydantic-settings==2.16.2
-  - pydantic==2.14.2
-  - python-jose==3.5.0
-  - sqlalchemy==2.1.6
-  - uvicorn==0.38.0
-  - x2s3==1.6.1
-  - hatch==1.18.1 ; extra == 'release'
-  - twine==7.0.0 ; extra == 'release'
-  - coverage==7.17.0 ; extra == 'test'
-  - httpx2==2.16.0 ; extra == 'test'
-  - pytest-asyncio==1.4.1 ; extra == 'test'
-  - pytest-cov==7.1.0 ; extra == 'test'
-  - pytest-html==4.2.0 ; extra == 'test'
-  - pytest==9.2.0 ; extra == 'test'
-  - requests-mock==1.12.1 ; extra == 'test'
-  requires_python: '>=3.12.0'
 - pypi: https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl
   name: urllib3
   version: 2.6.3
@@ -986,6 +949,43 @@ packages:
   - anyio>=4.11.0,<5 ; extra == 'httpx2'
   - httpx2>=2.0,<3.0.0 ; extra == 'httpx2'
   requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/82/e7/3eb509c39b0c3a97e0ae0da6ce095aef85f46fd5c6978b6811fd9e435307/fileglancer-4.2.1-py3-none-any.whl
+  name: fileglancer
+  version: 4.2.1
+  sha256: f06719a5da2158438f5d8b58aa1ea0902ac0949c8e7e854df1427a85ffa1767e
+  requires_dist:
+  - aiobotocore==3.10.0
+  - alembic==1.20.1
+  - atlassian-python-api==4.0.7
+  - authlib==1.9.1
+  - cachetools==6.2.6
+  - click==8.5.0
+  - cryptography==50.0.2
+  - fastapi==0.136.3
+  - httpx==0.28.1
+  - itsdangerous==2.2.0
+  - loguru==0.7.3
+  - packaging==26.3
+  - pandas==2.3.3
+  - psycopg2-binary==2.9.12
+  - psycopg[binary]==3.3.4
+  - py-cluster-api==0.8.1
+  - pydantic-settings==2.16.2
+  - pydantic==2.14.2
+  - python-jose==3.5.0
+  - sqlalchemy==2.1.6
+  - uvicorn==0.38.0
+  - x2s3==1.6.1
+  - hatch==1.18.1 ; extra == 'release'
+  - twine==7.0.0 ; extra == 'release'
+  - coverage==7.17.0 ; extra == 'test'
+  - httpx2==2.16.0 ; extra == 'test'
+  - pytest-asyncio==1.4.1 ; extra == 'test'
+  - pytest-cov==7.1.0 ; extra == 'test'
+  - pytest-html==4.2.0 ; extra == 'test'
+  - pytest==9.2.0 ; extra == 'test'
+  - requests-mock==1.12.1 ; extra == 'test'
+  requires_python: '>=3.12.0'
 - pypi: https://files.pythonhosted.org/packages/84/d0/205d54408c08b13550c733c4b85429e7ead111c7f0014309637425520a9a/deprecated-1.3.1-py2.py3-none-any.whl
   name: deprecated
   version: 1.3.1
