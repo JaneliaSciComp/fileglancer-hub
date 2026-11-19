@@ -138,11 +138,29 @@ npm run build
 
 The build output lands in `/opt/deploy/neuroglancer/dist/client`. The `/neuroglancer/`
 location block in `nginx.conf` serves this directory directly. If you built to a
-different path, update the `alias` in that block accordingly.
+different path, update the `alias` in both `/neuroglancer/` blocks accordingly.
+
+Neuroglancer's hashed assets are served with `expires max`, but its `index.html`
+is unhashed. The `location ~ ^/neuroglancer/(index\.html)?$` block sends
+`Cache-Control: no-cache` on the entry point so browsers revalidate it on every
+load. Without it, a browser that cached the index before a Neuroglancer redeploy
+keeps requesting the deleted `main.<oldhash>.js` and renders black. After
+reloading nginx, check both headers:
+
+```bash
+curl -sk -D - -o /dev/null https://<host>/neuroglancer/ | grep -i cache-control                # expect no-cache
+curl -sk -D - -o /dev/null https://<host>/neuroglancer/main.<hash>.js | grep -i cache-control   # expect max-age=315360000
+```
+
+A user already holding a stale index must open `https://<host>/neuroglancer/` as a
+top-level page and hard-reload it once. Hard-reloading a Fileglancer page does not
+refresh the iframe document.
 
 On a dev or staging host without its own build, use the commented "Dev/staging
 variant" block in `nginx.conf` instead: it proxies production's
-`/neuroglancer/` under this host's origin. Editing Views in the embedded viewer
+`/neuroglancer/` under this host's origin. Its nested `index.html` and `.wasm`
+locations are required: `expires max` on the proxy replaces the upstream
+`Cache-Control`, and `types` has no effect on proxied responses. Editing Views in the embedded viewer
 only works when Neuroglancer is served from the same origin as Fileglancer, so
 `instance_template_url` in `viewers.config.yaml` must use this host's name
 (for example `https://fileglancer-dev.int.janelia.org/neuroglancer/#!{...}`).
