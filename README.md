@@ -223,6 +223,8 @@ This lets a browser reach a running app service directly at `https://job-<id>-<m
 
 - **`FGC_APPS__SERVICE_PROXY_DOMAIN` in `.env`** — set to the same domain as the DNS record and certificate above (e.g. `services.int.janelia.org`, or `services-dev.int.janelia.org` for dev), then restart the fileglancer service.
 
+- **`FGC_APPS__SERVICE_PROXY_SOURCE_ADDRESS` in `.env`** (optional) — the address nginx on this host connects from, as the compute nodes see it. Find it with `ip route get <compute node IP>` and use the `src` value. Proxied service jobs receive it as `FG_SERVICE_PROXY_ADDRESS`. See `docs/ServiceProxy.md` in the fileglancer repo.
+
 - **`FGC_SESSION_SECRET_KEY` in `.env`** — required once the proxy domain is set; Fileglancer refuses to start without it, because the hostname labels are signed with it. Use a long random string (`openssl rand -hex 32`) and keep it stable: rotating it invalidates every live service URL along with every session.
 
 To verify the certificate nginx is actually serving for a given job hostname (bypasses browser cache):
